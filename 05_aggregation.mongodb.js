@@ -20,12 +20,17 @@ use("ecommerce");
 //     },
 // ]);
 
+//Aggregat function to calculate total sales per category
 db.sales.aggregate([
     {$group:{
         _id:"$category",
         totalsales:{$sum : { $multiply: ["$price", "$quantity"]}}
     }}
 ])
+
+
+
+
 
 
 
